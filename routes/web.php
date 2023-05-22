@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 Route::middleware('auth','verified')
     ->name('admin.')
     ->prefix('admin')
