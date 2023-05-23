@@ -28,6 +28,8 @@ class ProjectController extends Controller
     public function create()
     {
         return view('admin.projects.create');
+
+
     }
 
     /**
@@ -39,7 +41,10 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $received_form = $request->validated();
-        
+
+        $received_form['slug'] = Project::convertIntoSlug($received_form->title);
+
+
     }
 
     /**
@@ -50,7 +55,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.project.show', compact('project') );
+        return view('admin.projects.show', compact('project') );
     }
 
     /**
