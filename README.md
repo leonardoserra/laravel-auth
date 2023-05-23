@@ -12,4 +12,5 @@
 > 2. Creazione del modello `Project` con relativa migrazione, seeder, controller e rotte  
 > 3. Per la parte di back-office creiamo un resource controller `Admin\ProjectController` per gestire tutte le operazioni CRUD dei progetti  
   
-***Bonus: Implementiamo la validazione dei dati dei Progetti nelle operazioni CRUD che lo richiedono usando due form requests.***  
+*giorno2*  
+***Implementiamo la validazione dei dati dei Progetti nelle operazioni CRUD che lo richiedono usando due form requests. Quindi creare: show, create, store, edit, update, destroy***  
