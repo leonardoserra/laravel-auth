@@ -23,6 +23,8 @@
       <div id="app">
 
             @include('partials.header')
+            @include('partials.errors')
+            @include('partials.messages')
 
             <main class="">
                   <div class="container-fluid">

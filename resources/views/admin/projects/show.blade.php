@@ -1,14 +1,16 @@
 @extends('layouts.admin')
+@section('page-title', $project->title)
 
 @section('content')
       <div class="col-10">
             <div class="card">
-                  <img src="" class="card-img-top" alt="">
+                  @if ($project->image_src)
+                        <img src="{{ $project->image_src }}" class="card-img-top" alt="{{ $project->title }}">
+                  @endif
                   <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                              card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">{{ $project->title }}</h5>
+                        <p class="card-text">{{ $project->description }}</p>
+                        <a href="#" class="btn btn-primary">Modifica</a>
                   </div>
             </div>
       </div>
