@@ -16,8 +16,13 @@
                                     {{ session('status') }}
                               </div>
                         @endif
+                        <div class="alert alert-success" role="alert">
+                              {{ __('You are logged in!') }}
+                        </div>
+                        <div class="card-text">
+                              <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Crea Nuovo Project</a>
+                        </div>
 
-                        {{ __('You are logged in!') }}
                   </div>
             </div>
             {{-- </div> --}}

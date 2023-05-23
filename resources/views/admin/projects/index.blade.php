@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('page-title', 'Lista Projects')
 @section('content')
       <div class="col-10">
 
