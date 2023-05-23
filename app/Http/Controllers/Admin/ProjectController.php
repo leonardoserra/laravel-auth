@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
-use Illuminate\Http\Request;
+use Illuminate\Http\Requests;
 
 class ProjectController extends Controller
 {
@@ -28,8 +28,6 @@ class ProjectController extends Controller
     public function create()
     {
         return view('admin.projects.create');
-
-
     }
 
     /**
@@ -38,12 +36,14 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
         $received_form = $request->validated();
 
         $received_form['slug'] = Project::convertIntoSlug($received_form->title);
 
+        $newProject = Project::create($received_form);
+        return redirect()->route('admin.projects.show', ['project' => $newProject->slug])->with('status', 'Post creato con successo!');
 
     }
 
