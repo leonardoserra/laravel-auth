@@ -3,6 +3,7 @@
 @section('content')
       <div class="col-10">
 
+
             <table class="table">
                   <thead>
                         <tr>
@@ -25,7 +26,7 @@
                                                 href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Vedi</a>
                                           <a class="btn btn-warning"
                                                 href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">Modifica</a>
-                                          <form id="form_delete_project"
+                                          <form class="form_delete_project"
                                                 action="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}"
                                                 method="POST">
                                                 @csrf
@@ -39,4 +40,25 @@
             </table>
 
       </div>
+
+
+      {{-- sezione modale --}}
+      <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Conferma eliminazione</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                              Sicuro di voler eliminare il Project?
+                        </div>
+                        <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                              <button type="button" class="btn btn-danger">Conferma eliminazione</button>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
 @endsection

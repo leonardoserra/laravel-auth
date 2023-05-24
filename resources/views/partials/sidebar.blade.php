@@ -1,6 +1,7 @@
 <div class="col-2">
       <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary">
-
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Crea Nuovo
+                  Project</a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                   <li class="nav-item">
@@ -26,7 +27,9 @@
                               </svg>
                               Projects
                         </a>
+
                   </li>
+
             </ul>
             <hr>
             <div class="dropdown">

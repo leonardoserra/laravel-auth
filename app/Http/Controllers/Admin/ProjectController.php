@@ -39,8 +39,8 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $received_form = $request->validated();
-
-        $received_form['slug'] = Project::convertIntoSlug($received_form->title);
+        
+        $received_form['slug'] = Project::convertIntoSlug($request->title);
 
         $checkProject = Project::where('slug', $received_form['slug'])->first();
         if ($checkProject) {
