@@ -25,8 +25,13 @@
                                                 href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Vedi</a>
                                           <a class="btn btn-warning"
                                                 href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">Modifica</a>
-                                          <a class="btn btn-danger"
-                                                href="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}">Vedi</a>
+                                          <form id="form_delete_project"
+                                                action="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Elimina</button>
+                                          </form>
                                     </td>
                               </tr>
                         @endforeach
