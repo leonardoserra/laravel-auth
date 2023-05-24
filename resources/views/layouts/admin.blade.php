@@ -24,7 +24,6 @@
 
             @include('partials.header')
             @include('partials.errors')
-            @include('partials.messages')
 
             <main class="">
                   <div class="container-fluid">
@@ -32,6 +31,7 @@
                               @include('partials.sidebar')
 
                               @yield('content')
+                              @include('partials.messages')
 
                         </div>
                   </div>
