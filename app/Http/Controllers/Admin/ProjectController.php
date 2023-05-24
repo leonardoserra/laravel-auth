@@ -42,6 +42,10 @@ class ProjectController extends Controller
 
         $received_form['slug'] = Project::convertIntoSlug($received_form->title);
 
+        $checkProject = Project::where('slug', $received_form['slug'])->first();
+        if ($checkProject) {
+            return back()->withInput()->withErrors(['slug' => 'Impossibile creare lo slug per questo post, cambia il titolo']);
+        }
         $newProject = Project::create($received_form);
         return redirect()->route('admin.projects.show', ['project' => $newProject->slug])->with('status', 'Post creato con successo!');
 
@@ -66,7 +70,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        {
+            return view('admin.projects.edit', compact('project'));
+        }
     }
 
     /**
@@ -76,9 +82,19 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $received_form = $request->validated();
+        $received_form['slug'] = Project::convertIntoSlug($request->title);
+
+        $checkProject = Project::where('slug', $received_form['slug'])->where('id', '<>', $project->id)->first();
+
+        if ($checkProject) {
+            return back()->withInput()->withErrors(['slug' => 'Impossibile creare lo slug']);
+        }
+        $project->update($received_form);
+        return redirect()->route('admin.projects.show', ['project' => $project->slug])->with('status', 'Post modificato con successo!');
+
     }
 
     /**

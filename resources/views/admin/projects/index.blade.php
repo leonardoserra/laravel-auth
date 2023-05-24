@@ -24,7 +24,7 @@
                                           <a class="btn btn-primary"
                                                 href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Vedi</a>
                                           <a class="btn btn-warning"
-                                                href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">Vedi</a>
+                                                href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">Modifica</a>
                                           <a class="btn btn-danger"
                                                 href="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}">Vedi</a>
                                     </td>
