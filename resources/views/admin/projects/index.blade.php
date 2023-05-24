@@ -21,10 +21,10 @@
                                     <td>{{ $project->title }}</td>
                                     <td>{{ $project->description }}</td>
                                     <td>{{ $project->slug }}</td>
-                                    <td>
+                                    <td class="d-flex">
                                           <a class="btn btn-primary"
                                                 href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Vedi</a>
-                                          <a class="btn btn-warning"
+                                          <a class="btn btn-warning ms-2 me-2"
                                                 href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">Modifica</a>
                                           <form class="form_delete_project"
                                                 action="{{ route('admin.projects.destroy', ['project' => $project->slug]) }}"
